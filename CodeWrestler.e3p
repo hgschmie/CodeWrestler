@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-3.7.dtd">
+<!-- Project file for project CodeWrestler -->
+<!-- Saved: 2005-08-19, 19:08:12 -->
+<!-- Copyright (C) 2005 Henning Schmiedehausen, henning@schmiedehausen.org -->
+<Project version="3.7">
+  <ProgLanguage mixed="0">Python</ProgLanguage>
+  <UIType>Console</UIType>
+  <Description>Code Formatter and Checker
+</Description>
+  <Version>0.1</Version>
+  <Author>Henning Schmiedehausen</Author>
+  <Email>henning@schmiedehausen.org</Email>
+  <Sources>
+    <Source>
+      <Name>CodeWrestler.py</Name>
+    </Source>
+    <Source>
+      <Dir>util</Dir>
+      <Name>TreeBuilder.py</Name>
+    </Source>
+    <Source>
+      <Dir>util</Dir>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>util</Dir>
+      <Name>Pattern.py</Name>
+    </Source>
+    <Source>
+      <Dir>util</Dir>
+      <Name>DefaultCallback.py</Name>
+    </Source>
+    <Source>
+      <Dir>util</Dir>
+      <Name>CallbackType.py</Name>
+    </Source>
+    <Source>
+      <Dir>license</Dir>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>license</Dir>
+      <Name>CheckLicense.py</Name>
+    </Source>
+    <Source>
+      <Dir>util</Dir>
+      <Name>CommentSplitter.py</Name>
+    </Source>
+    <Source>
+      <Dir>license</Dir>
+      <Name>ReLicense.py</Name>
+    </Source>
+    <Source>
+      <Dir>license</Dir>
+      <Name>LicenseType.py</Name>
+    </Source>
+    <Source>
+      <Dir>license</Dir>
+      <Name>ListLicense.py</Name>
+    </Source>
+    <Source>
+      <Dir>format</Dir>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>format</Dir>
+      <Name>ReFormat.py</Name>
+    </Source>
+    <Source>
+      <Dir>format</Dir>
+      <Name>StripBlank.py</Name>
+    </Source>
+  </Sources>
+  <Forms>
+  </Forms>
+  <Translations>
+  </Translations>
+  <Interfaces>
+  </Interfaces>
+  <Others>
+    <Other>
+      <Name>test.exclude</Name>
+    </Other>
+  </Others>
+  <MainScript>
+    <Name>CodeWrestler.py</Name>
+  </MainScript>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+</Project>
