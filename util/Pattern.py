@@ -95,9 +95,11 @@ class Pattern:
         'jsp': ( '\.jsp$',
                  ),
 
-        'c': ( '\.js$', '\.c$', '\.h$', '\.cpp$', '\.cc$', '\.cs$', '\.css$', '\.egrm$', '\.grm$',
-               '\.javascript$',
+        'c': ( '\.c$', '\.h$', '\.cpp$', '\.cc$', '\.cs$', '\.css$', '\.egrm$', '\.grm$',
                ),
+
+        'javascript': ( '\.js$', '\.javascript$',
+                        ),
 
         'java': ( '\.java$', '\.groovy$', '\.gy', '\.jj$',
                   ),
@@ -111,7 +113,7 @@ class Pattern:
         'python': ( '\.py$',
                     ),
 
-        'properties': ( '\.properties$', '\.rnc$', '\.rnx$', '\.properties.tmpl$',
+        'properties': ( '\.properties$', '\.rnc$', '\.rnx$', '\.properties\.tmpl$',
                         ),
 
         'dos': ( '\.bat$', '\.cmd$',
@@ -163,6 +165,11 @@ class Pattern:
                                  'closeComment': '*/',
                                  'indent': ( 0, 1, 1, 0, 1 ),
                                  }),
+        'javascript': PatternDefinition({ 'openComment': '/*',
+                                          'leaderComment': '*',
+                                          'closeComment': '*/',
+                                          'indent': ( 0, 1, 1, 0, 1 ),
+                                          }),
         'java': PatternDefinition({ 'openComment': '/*',
                                     'leaderComment': '*',
                                     'closeComment': '*/',
