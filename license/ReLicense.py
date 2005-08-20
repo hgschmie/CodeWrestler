@@ -25,7 +25,7 @@ import getopt, re
 from util.CallbackType import CallbackType
 from util.Pattern import Pattern
 from util.CommentSplitter import CommentSplitter, CommentPart
-from license.LicenseType import LicenseType
+from util.LicenseType import LicenseType
 from util.File import load, save
 
 def getCallback(cw=None):
@@ -43,7 +43,7 @@ class ReLicense(CallbackType):
             opts, args = getopt.getopt(cw.module_options, "ef:hnt:", ["existing-only", "file=", "help", "new-only", "type="])
         except getopt.GetoptError:
             self.usage()
-            raise ValueError("Parameter Error")
+            raise ValueError("*** Parameter Error")
 
         filename = None
         type = "text"
@@ -54,7 +54,7 @@ class ReLicense(CallbackType):
         for option, value in opts:
             if option in ("-h", "--help"):
                 self.usage()
-                raise ValueError("Parameter Error")
+                raise ValueError("*** Parameter Error")
             elif option in ("-e", "--existing-only"):
                 self.existingOnly = True
                 continue
@@ -69,10 +69,12 @@ class ReLicense(CallbackType):
                 continue
 
         if filename is None:
-            raise ValueError("You must supply a license file name")
+            self.usage()
+            raise ValueError("*** You must supply a license file name")
 
         if not self.existingOnly and not self.newOnly:
-            raise ValueError("No Action has been selected!")
+            self.usage()
+            raise ValueError("*** No Action has been selected!")
 
         if not os.path.isabs(filename):
             filename = os.path.join(self.cw.dirtree, filename)
@@ -88,6 +90,10 @@ class ReLicense(CallbackType):
 
     def usage(self):
         print "Usage: license.ReLicense"
+        print ""
+        print "The following parameters must be supplied using the \"--modopts\" option"
+        print "of the main program:"
+        print ""
         print "-h, --help:          Show this help"
         print ""
         print "-e, --existing-only: Replace only existing licenses. If a file has no"
@@ -98,6 +104,7 @@ class ReLicense(CallbackType):
         print "                     check relative to the working directory"
         print "-t, --type:          Type of the license file. Default is text. If you want"
         print "                     to use e.g. a checkstyle-license file, you may need 'java'"
+        print ""
 
     def callback(self, root=None, file=None, type=None):
 

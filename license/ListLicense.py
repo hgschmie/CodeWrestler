@@ -26,7 +26,7 @@ from util.Pattern import Pattern
 from util.CommentSplitter import CommentSplitter, CommentPart
 from util.File import load
 
-from license.LicenseType import LicenseType
+from util.LicenseType import LicenseType
 
 def getCallback(cw=None):
     return ListLicense(cw)

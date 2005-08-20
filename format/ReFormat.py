@@ -25,7 +25,6 @@ import getopt, re
 from util.CallbackType import CallbackType
 from util.Pattern import Pattern
 from util.CommentSplitter import CommentSplitter, CommentPart
-from license.LicenseType import LicenseType
 from util.File import load, save
 
 def getCallback(cw=None):

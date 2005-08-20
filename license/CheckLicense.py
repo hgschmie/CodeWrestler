@@ -41,7 +41,7 @@ class CheckLicense(CallbackType):
             opts, args = getopt.getopt(cw.module_options, "f:ht:", ["file=", "help", "type="])
         except getopt.GetoptError:
             self.usage()
-            raise ValueError("Parameter Error")
+            raise ValueError("*** Parameter Error")
 
         filename = None
         type = "text"
@@ -49,7 +49,7 @@ class CheckLicense(CallbackType):
         for option, value in opts:
             if option in ("-h", "--help"):
                 self.usage()
-                raise ValueError("Parameter Error")
+                raise ValueError("*** Parameter Error")
             elif option in ("-f", "--file"):
                 filename = value
                 continue
@@ -58,7 +58,8 @@ class CheckLicense(CallbackType):
                 continue
 
         if filename is None:
-            raise ValueError("You must supply a license file name")
+            self.usage()
+            raise ValueError("*** You must supply a license file name")
 
         if not os.path.isabs(filename):
             filename = os.path.join(self.cw.dirtree, filename)
@@ -69,17 +70,22 @@ class CheckLicense(CallbackType):
         self.license = CommentPart(self.pattern.getDefinition(type), load(filename))
 
         if len(self.license) == 0:
-            raise ValueError("License file is empty or could not be read")
+            raise ValueError("*** License file is empty or could not be read")
 
 
     def usage(self):
         print "Usage: license.CheckLicense"
+        print ""
+        print "The following parameters must be supplied using the \"--modopts\" option"
+        print "of the main program:"
+        print ""
         print "-h, --help:          Show this help"
         print ""
         print "-f, --file:          The license file to check. If name is not absolute,"
         print "                     check relative to the working directory"
         print "-t, --type:          Type of the license file. Default is text. If you want"
         print "                     to use e.g. a checkstyle-license file, you may need 'java'"
+        print ""
 
 
     def callback(self, root=None, file=None, type=None):
@@ -118,7 +124,7 @@ class CheckLicense(CallbackType):
 
 
         if len(commentBlock) != len(self.license):
-            print "%s: line numbers don't match: %d vs. %d lines" % (fullfile, len(commentBlock), len(self.license))
+            print "%s: line count of license block does not match: %d vs. %d lines" % (fullfile, len(commentBlock), len(self.license))
             return
 
         space = re.compile("^\s+$")
