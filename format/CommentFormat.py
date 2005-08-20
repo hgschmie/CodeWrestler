@@ -28,9 +28,9 @@ from util.CommentSplitter import CommentSplitter, CommentPart
 from util.File import load, save
 
 def getCallback(cw=None):
-    return ReFormat(cw)
+    return CommentFormat(cw)
 
-class ReFormat(CallbackType):
+class CommentFormat(CallbackType):
     """ formats existing comment blocks to match the global comment style """
     def __init__(self, cw=None):
         CallbackType.__init__(self, cw)
@@ -50,7 +50,7 @@ class ReFormat(CallbackType):
         fullfile = os.path.join(root, file)
 
         if self.cw.verbose:
-            print "Reformatting %s (%s)..." % (file, type)
+            print "Formatting comments in %s (%s)..." % (file, type)
 
         lines = load(fullfile)
 
