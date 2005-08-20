@@ -48,7 +48,7 @@ class CodeWrestler:
         "^CVS$",                   # CVS
         "^\..*$",                  # hidden files
         "^.*~$", "^#.*#$",         # emacs Backup files
-        "\.pyc$", "\.pyo$"         # python bytecode files
+        "\.pyc$", "\.pyo$",        # python bytecode files
         "\.png$", "\.gif$", "\.jpg$", "\.jpeg$", "\.ico$", "\.gz$" # various known binary files
         )
 
