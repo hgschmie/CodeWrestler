@@ -102,8 +102,14 @@ class Pattern:
         'java': ( '\.java$', '\.groovy$', '\.gy', '\.jj$',
                   ),
 
-        'sh': ( '\.sh$', '\.ccf$', '\.pl$', '\.py$',
+        'sh': ( '\.sh$', '\.ccf$',
                 ),
+
+        'perl': ('\.pl$', '\.pm$',
+                 ),
+
+        'python': ( '\.py$',
+                    ),
 
         'properties': ( '\.properties$', '\.rnc$', '\.rnx$', '\.properties.tmpl$',
                         ),
@@ -166,6 +172,14 @@ class Pattern:
                                   'leaderComment': '#',
                                   'indent': ( 0, 0, 1, 0, 0 ),
                                   }),
+        'perl': PatternDefinition({ 'openComment': '# ',
+                                    'leaderComment': '#',
+                                    'indent': ( 0, 0, 1, 0, 0 ),
+                                    }),
+        'python': PatternDefinition({ 'openComment': '# ',
+                                      'leaderComment': '#',
+                                      'indent': ( 0, 0, 1, 0, 0 ),
+                                      }),
         'properties': PatternDefinition({ 'openComment': '#',
                                           'leaderComment': '#',
                                           'indent': ( 0, 0, 1, 0, 0 ),
