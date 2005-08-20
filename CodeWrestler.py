@@ -42,12 +42,13 @@ from util.TreeBuilder import TreeBuilder, Traverse
 
 class CodeWrestler:
 
-    # Well known skip patterns skip every time
+    # Well known skip patterns to skip every time
     known_excludes = (
-        "^\.svn$",         # Subversion
-        "^CVS$",           # CVS
-        "^\..*$",          # hidden files
-        "^.*~$",           # emacs Backup files
+        "^\.svn$",                 # Subversion
+        "^CVS$",                   # CVS
+        "^\..*$",                  # hidden files
+        "^.*~$", "^#.*#$",         # emacs Backup files
+        "\.pyc$", "\.pyo$"         # python bytecode files
         "\.png$", "\.gif$", "\.jpg$", "\.jpeg$", "\.ico$", "\.gz$" # various known binary files
         )
 
