@@ -7,15 +7,26 @@ ways. Its main function is to traverse a source tree, identify the
 file types (e.g. source code, scripts, xml files, properties files)
 and run different processing classes on them.
 
-This is still sort of a "work in progress". If you find bugs or have
-enhancements, send them to me (henning@schmiedehausen.org).
-
 This program is 
 
 Copyright (C) 2005 by Henning Schmiedehausen <henning@schmiedehausen.org>
 
 Distributed under the terms of the Apache License 2.0 as described in
 the etc/LICENSE.txt file in this distribution.
+
+Download
+========
+
+This is still sort of a "work in progress". 
+
+You can get CodeWrestler from its Subversion source repository at
+
+https://svn.softwareforge.de/trac/browser/codewrestler/trunk/
+
+If you find bugs or have enhancements, please put them into the
+CodeWrestler issue tracker at
+
+https://svn.softwareforge.de/trac/newticket?component=CodeWrestler
 
 
 Processing module overview
@@ -147,7 +158,7 @@ Ending		|    Type    | Own  |    Open   | Close| LD  | TR | Indent  |
 ----------------+------------+------+-----------+------+-----+----+-+-+-+-+-+
                 |            |      |           |      |     |    | | | | | |
 xml xsl xslt    | xml        | yes  |    <!--   | -->  |     |    |0|0|0|2|0|
-xcat.xmap xconf |            |      |           |      |     |    | | | | | |
+xcat xmap xconf |            |      |           |      |     |    | | | | | |
 xroles roles    |            |      |           |      |     |    | | | | | |
 xsp xlog        |            |      |           |      |     |    | | | | | |
 xsamples xtest  |            |      |           |      |     |    | | | | | |
