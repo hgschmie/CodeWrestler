@@ -78,7 +78,7 @@ class Pattern:
     """Holds all the well known pattern types and offers matching methods to find out what type of file a file name is"""
 
     pattern_def = {
-        'xml': ( '\.xml$', '\.xsl$', '\.xslt$', '\.xmap$', '\.xcat$',
+        'xml': ( '\.xml$', '\.xsl$', '\.xslt$', '\.xcat$',
                  '\.xmap$', '\.xconf$', '\.xroles$', '\.roles$', '\.xsp$',
                  '\.xlog$', '\.xsamples$', '\.xtest$', '\.xweb$', '\.xwelcome$',
                  '\.samplesxconf$', '\.samplesxpipe$', '\.svg$', '\.xhtml$', '\.jdo$', '\.gt$', '\.jx$',
@@ -175,15 +175,15 @@ class Pattern:
                                     'closeComment': '*/',
                                     'indent': ( 0, 1, 1, 0, 1 ),
                                     }),
-        'sh': PatternDefinition({ 'openComment': '# ',
+        'sh': PatternDefinition({ 'openComment': '#',
                                   'leaderComment': '#',
                                   'indent': ( 0, 0, 1, 0, 0 ),
                                   }),
-        'perl': PatternDefinition({ 'openComment': '# ',
+        'perl': PatternDefinition({ 'openComment': '#',
                                     'leaderComment': '#',
                                     'indent': ( 0, 0, 1, 0, 0 ),
                                     }),
-        'python': PatternDefinition({ 'openComment': '# ',
+        'python': PatternDefinition({ 'openComment': '#',
                                       'leaderComment': '#',
                                       'indent': ( 0, 0, 1, 0, 0 ),
                                       }),
@@ -237,7 +237,3 @@ class Pattern:
             return self.definitions[type]
         except KeyError:
             return self.definitions['None']
-
-
-
-
