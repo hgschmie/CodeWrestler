@@ -112,7 +112,10 @@ class CodeWrestler:
 
             excludefile = open(excludefilename)
             for line in excludefile.readlines():
-                excludes.append(line.rstrip('\n'))
+                line = line.rstrip('\n')
+                if len(line) == 0 or line.isspace() or line[0] == '#':
+                    continue
+                excludes.append(line.strip())
 
         if self.verbose:
             print "Traversed tree:  %s" % self.dirtree
