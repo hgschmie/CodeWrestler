@@ -152,6 +152,9 @@ class DataPart(list):
         self.ignoreBlankLines = ignoreBlankLines
 
     def append(self, object):
+        if object is None:
+            raise ValueError("You cannot add None to a block!")
+            
         # ignore leading blank lines
         if self.ignoreBlankLines and len(self) == 0 and len(object) > 0 and object.isspace():
             return
