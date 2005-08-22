@@ -51,6 +51,10 @@ Processing module overview
 * format/StripBlank
    Removes trailing blanks from the source code files
 
+* java/TopFormatter
+   Reworks the sequence of package, license, import statements in
+   java and java-like files.
+
 
 Main options
 ============
@@ -322,8 +326,24 @@ Checks for new files in the codewrestler code base and adds license
 files apropriately.
 
 
-The indent model
-================
+java/TopFormatter
+-----------------
+
+This module reworks the position of the package statement of java
+files (either before or right after the license) and cleans up blank
+lines surrounding the license block.
+
+This plugin is intended to clean up your source files for the maven
+checkstyle plugin.
+
+-h, --help:           Show this help
+
+-l, --license-on-top: Put the license block on the very top of the file.
+                      Else it is put right after the package statement.
+
+
+The comment indent model
+========================
 
 Some CodeWrestler modules parse the comment blocks in the source code
 files and reformats them according to the rules given above. The

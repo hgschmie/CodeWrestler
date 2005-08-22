@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-3.7.dtd">
 <!-- Project file for project CodeWrestler -->
-<!-- Saved: 2005-08-19, 19:08:12 -->
+<!-- Saved: 2005-08-22, 11:35:19 -->
 <!-- Copyright (C) 2005 Henning Schmiedehausen, henning@schmiedehausen.org -->
 <Project version="3.7">
   <ProgLanguage mixed="0">Python</ProgLanguage>
@@ -53,10 +53,6 @@
     </Source>
     <Source>
       <Dir>license</Dir>
-      <Name>LicenseType.py</Name>
-    </Source>
-    <Source>
-      <Dir>license</Dir>
       <Name>ListLicense.py</Name>
     </Source>
     <Source>
@@ -65,11 +61,15 @@
     </Source>
     <Source>
       <Dir>format</Dir>
-      <Name>ReFormat.py</Name>
+      <Name>StripBlank.py</Name>
     </Source>
     <Source>
-      <Dir>format</Dir>
-      <Name>StripBlank.py</Name>
+      <Dir>java</Dir>
+      <Name>TopFormatter.py</Name>
+    </Source>
+    <Source>
+      <Dir>java</Dir>
+      <Name>__init__.py</Name>
     </Source>
   </Sources>
   <Forms>
