@@ -49,7 +49,8 @@ class CodeWrestler:
         "^\..*$",                  # hidden files
         "^.*~$", "^#.*#$",         # emacs Backup files
         "\.pyc$", "\.pyo$",        # python bytecode files
-        "\.png$", "\.gif$", "\.jpg$", "\.jpeg$", "\.ico$", "\.gz$" # various known binary files
+        "\.png$", "\.gif$", "\.jpg$", "\.jpeg$", "\.ico$", "\.gz$", # various known binary files
+        "\.xcf",                   # Gimp Files
         )
 
     def usage(self):
