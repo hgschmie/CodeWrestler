@@ -133,19 +133,29 @@ class ReLicense(CallbackType):
 
         commentBlock = None
         commentIndex = -1
+        firstIndex = -1
         for i in range(0, len(elementList)):
             if isinstance(elementList[i], CommentPart):
-                commentBlock = elementList[i]
-                commentIndex = i
-                break
+                firstIndex = i
+                licenseChecker = LicenseType(elementList[i])
+                if licenseChecker.isLicense:
+                    commentBlock = elementList[i]
+                    commentIndex = i
+                    break
         else:
-            # if the file has no comment block, then we squeeze a new copyright block on
-            # top of it
-            if self.newOnly:
-                elementList[:0] = [ self.license.copy(definition) ]
-                print "%s: Added License" % fullfile
-                save(fullfile, elementList.toString())
-            return
+            if firstIndex == -1:
+                # if the file has no comment block, then we squeeze a new copyright block on
+                # top of it
+                if self.newOnly:
+                    elementList[:0] = [ self.license.copy(definition) ]
+                    print "%s: Added License" % fullfile
+                    save(fullfile, elementList.toString())
+                return
+            else:
+                # we did find a comment block but none of the comment blocks was actually a license
+                # block
+                commentIndex = firstIndex
+                commentBlock = elementList[firstIndex]
 
         licenseChecker = LicenseType(commentBlock)
         if not licenseChecker.isLicense:

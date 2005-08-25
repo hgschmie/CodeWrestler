@@ -68,14 +68,14 @@ class ListLicense(CallbackType):
         commentBlock = None
         for block in elementList:
             if isinstance(block, CommentPart):
-                commentBlock = block
-                break
+                licenseChecker = LicenseType(block)
+
+                if licenseChecker.isLicense:
+                    commentBlock = block
+                    break
         else:
             print "%s: No comment block found! (No copyright notice either!)" % fullfile
             return
-
-
-        licenseChecker = LicenseType(commentBlock)
 
         if not licenseChecker.isCopyright:
             print "%s: Has no copyright" % fullfile

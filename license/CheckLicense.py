@@ -26,6 +26,7 @@ from util.CallbackType import CallbackType
 from util.Pattern import Pattern
 from util.CommentSplitter import CommentSplitter, CommentPart
 from util.File import load
+from util.LicenseType import LicenseType
 
 def getCallback(cw=None):
     return CheckLicense(cw)
@@ -116,8 +117,10 @@ class CheckLicense(CallbackType):
         commentBlock = None
         for block in elementList:
             if isinstance(block, CommentPart):
-                commentBlock = block
-                break
+                licenseChecker = LicenseType(block)
+                if licenseChecker.isLicense:
+                    commentBlock = block
+                    break
         else:
             print "%s: No comment block found! (No copyright notice either!)" % fullfile
             return
