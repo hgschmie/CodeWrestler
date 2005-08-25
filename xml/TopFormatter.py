@@ -19,14 +19,10 @@
 #
 # ======================================================================
 
-import os, sys
-import re
+import os, re
 from util.Pattern import Pattern
 from util.CommentSplitter import CommentSplitter, DataPart, BlockList
 from util.File import load, save
-
-from util.CallbackType import CallbackType
-
 
 from util.CallbackType import CallbackType
 
