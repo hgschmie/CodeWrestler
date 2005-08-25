@@ -55,6 +55,11 @@ Processing module overview
    Reworks the sequence of package, license, import statements in
    java and java-like files.
 
+* xml.TopFormatter
+   Looks for <?xml headers in XML files. If it finds such a line, it
+   makes sure that it is the very first line in the XML file. Else, it
+   adds a <?xml version="1.0" encoding="UTF-8"?> line on top.
+
 
 Main options
 ============
@@ -69,8 +74,10 @@ Main options
 			relative location is given, it is relative to
 			the start directory (Format see below)
 
--m, --module:		The processing module to select (Default: List 
-                        all matched files and their types)
+-m, --module:		The processing module to select. If no module
+                        has been selected, all files that have no known
+                        type will be listed; if also -v or --verbose is
+                        given, then all files and their type will be listed
 
 -o, --modopts:		Supply modules specific parameters. For multiple
 			parameters use --modopts='--foo --bar xxx --baz'
@@ -129,6 +136,7 @@ ignored:
 \.jpeg$		- JPEG images
 \.ico$		- ICON files
 \.gz$		- gzipped files
+\.xcf$		- Gimp Files
 
 
 File type matching
@@ -175,7 +183,7 @@ pagesheet stx   |            |      |           |      |     |    | | | | | |
 xegrm xgrm xlex |            |      |           |      |     |    | | | | | |
 xmi xsd rng rdf |            |      |           |      |     |    | | | | | |
 rdfs xul tld    |            |      |           |      |     |    | | | | | |
-xxe ft fv       |            |      |           |      |     |    | | | | | |
+xxe ft fv xhtm  |            |      |           |      |     |    | | | | | |
                 |            |      |           |      |     |    | | | | | |
 ----------------+------------+------+-----------+------+-----+----+-+-+-+-+-+
                 |            |      |           |      |     |    | | | | | |
@@ -205,6 +213,8 @@ java groovy gy  | java       | yes  |    /*     | */   | *   |    |0|1|1|1|0|
 jj              |            |      |           |      |     |    | | | | | |
                 |            |      |           |      |     |    | | | | | |
 ----------------+------------+------+-----------+------+-----+----+-+-+-+-+-+
+jelly           | jelly      | yes  |    <!--   | -->  |     |    |0|0|0|2|0|
+----------------+------------+------+-----------+------+-----+----+-+-+-+-+-+
                 |            |      |           |      |     |    | | | | | |
 sh ccf          | sh         | no   |    #      |      | #   |    |0|0|0|1|0|
                 |            |      |           |      |     |    | | | | | |
@@ -232,7 +242,7 @@ sql             | sql        | no   | --        |      | --  |    |0|0|0|1|0|
                 |            |      |           |      |     |    | | | | | |
 ----------------+------------+------+-----------+------+-----+----+-+-+-+-+-+
                 |            |      |           |      |     |    | | | | | |
-vm              | velocity   | no   | ##        |      | ##  |    |0|0|0|1|0|
+vm vsl          | velocity   | no   | ##        |      | ##  |    |0|0|0|1|0|
                 |            |      |           |      |     |    | | | | | |
 ----------------+------------+------+-----------+------+-----+----+-+-+-+-+-+
                 |            |      |           |      |     |    | | | | | |
