@@ -72,7 +72,7 @@ class TopFormatter(CallbackType):
                         break
             if testLine or foundLine is not None:
                 break # python sucks
-                
+
 
         newXmlDefBlock = DataPart()
 
