@@ -1,3 +1,28 @@
-2005-08-22  Henning P. Schmiedehausen  <hps@intermeta.de>
+2005-08-22  Henning P. Schmiedehausen  <henning@schmiedehausen.org>
 
 	* Version 1.0
+
+2005-08-25  Henning P. Schmiedehausen  <henning@schmiedehausen.org>
+
+	* Version 1.1
+
+	* fix a number of documentation bugs. Rule: Don't write docs
+	  late at night.
+
+	* Ignore GIMP (.xcf) files
+
+	* make license.CheckLicense, license.ReLicense,
+	  license.ListLicense a bit smarter to deal with files where the
+	  first comment is not the license (e.g. python files)
+
+	* change default behaviour to list only unknown files (list
+	  all files when --verbose or -v is given)
+
+	* Add new pattern:  .xhtm --> XML
+	                    .vsl  --> Velocity
+	 
+	* Add new type:     .jelly --> Jelly (like XML)
+
+	* Add a new processing module: xml/TopFormatter to check for <?xml
+	  lines.
+
