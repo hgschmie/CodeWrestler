@@ -84,6 +84,7 @@ class Pattern:
                  '\.samplesxconf$', '\.samplesxpipe$', '\.svg$', '\.xhtml$', '\.jdo$', '\.gt$', '\.jx$',
                  '\.jxt$', '\.meta$', '\.pagesheet$', '\.stx$', '\.xegrm$', '\.xgrm$', '\.xlex$', '\.xmi$',
                  '\.xsd$', '\.rng$', '\.rdf$', '\.rdfs$', '\.xul$', '\.tld$', '\.xxe$', '\.ft$', '\.fv$',
+                 '\.xhtm$',
                  ),
 
         'sgml': ( '\.dtd$', '\.mod$', '\.sgml$', '\.sgm$',
@@ -104,6 +105,9 @@ class Pattern:
         'java': ( '\.java$', '\.groovy$', '\.gy', '\.jj$',
                   ),
 
+        'jelly': ( '\.jelly$',
+                        ),
+
         'sh': ( '\.sh$', '\.ccf$',
                 ),
 
@@ -122,7 +126,7 @@ class Pattern:
         'sql': ( '\.sql$',
                  ),
 
-        'velocity': ( '\.vm$',
+        'velocity': ( '\.vm$', '\.vsl$'
                       ),
 
         'text': ( '\.txt$',
@@ -175,6 +179,10 @@ class Pattern:
                                     'closeComment': '*/',
                                     'indent': ( 0, 1, 1, 0, 1 ),
                                     }),
+        'jelly': PatternDefinition({ 'openComment': '<!--',
+                                   'closeComment': '-->',
+                                   'indent': ( 0, 0, 2, 0, 0 ),
+                                   }),
         'sh': PatternDefinition({ 'openComment': '#',
                                   'leaderComment': '#',
                                   'indent': ( 0, 0, 1, 0, 0 ),
