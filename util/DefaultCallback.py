@@ -21,12 +21,21 @@
 
 from util.CallbackType import CallbackType
 
+import os.path
+
 class DefaultCallback(CallbackType):
     def __init__(self, cw=None):
         CallbackType.__init__(self, cw)
+        self.cw = cw
 
     def callback(self, root=None, file=None, type=None):
-        print "%s: Is a %s file" % (file, type)
+        fullfile = os.path.join(root, file)
+
+        if self.cw.verbose:
+            print "%s: Is a %s file" % (fullfile, type)
+        else:
+            if type is None:
+                print "%s: unknown type" % fullfile
 
 def getCallback(cw=None):
     return DefaultCallback(cw)
