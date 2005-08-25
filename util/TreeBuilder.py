@@ -38,10 +38,6 @@ class Traverse:
 
         type = self.pattern.getType(file)
 
-        if type is None:
-            print "File %s has unknown type" % file
-            return
-
         self.callback.callback(root, file, type)
 
 class TreeBuilder:
