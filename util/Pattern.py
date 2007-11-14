@@ -84,7 +84,7 @@ class Pattern:
                  '\.samplesxconf$', '\.samplesxpipe$', '\.svg$', '\.xhtml$', '\.jdo$', '\.gt$', '\.jx$',
                  '\.jxt$', '\.meta$', '\.pagesheet$', '\.stx$', '\.xegrm$', '\.xgrm$', '\.xlex$', '\.xmi$',
                  '\.xsd$', '\.rng$', '\.rdf$', '\.rdfs$', '\.xul$', '\.tld$', '\.xxe$', '\.ft$', '\.fv$',
-                 '\.xhtm$',
+                 '\.xhtm$', '\.launch$', '^\.classpath$', '^\.project$',
                  ),
 
         'sgml': ( '\.dtd$', '\.mod$', '\.sgml$', '\.sgm$',
@@ -102,7 +102,7 @@ class Pattern:
         'javascript': ( '\.js$', '\.javascript$',
                         ),
 
-        'java': ( '\.java$', '\.groovy$', '\.gy', '\.jj$',
+        'java': ( '\.java$', '\.groovy$', '\.gy', '\.jj$', '\.jjt$',
                   ),
 
         'jelly': ( '\.jelly$',
@@ -117,7 +117,7 @@ class Pattern:
         'python': ( '\.py$',
                     ),
 
-        'properties': ( '\.properties$', '\.rnc$', '\.rnx$', '\.properties\.tmpl$',
+        'properties': ( '\.properties$', '\.rnc$', '\.rnx$', '\.properties\.tmpl$', '\.props$'
                         ),
 
         'dos': ( '\.bat$', '\.cmd$',
