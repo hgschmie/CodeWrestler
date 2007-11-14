@@ -97,13 +97,13 @@ class TopFormatter(CallbackType):
                 commentBlock = block
                 break
         else:
-            raise ValueError("%s: No comment block found")
+            raise ValueError("%s: No comment block found" % fullfile)
 
 
         licenseChecker = LicenseType(commentBlock)
 
-        if not licenseChecker.isLicense:
-            raise ValueError("%s: First comment block is not the license block!")
+        if not licenseChecker.isLicense and not licenseChecker.isCopyright:
+            raise ValueError("%s: First comment block is not the license/copyright block!" % fullfile)
 
         newElements = BlockList()
 
