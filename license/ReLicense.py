@@ -138,7 +138,7 @@ class ReLicense(CallbackType):
             if isinstance(elementList[i], CommentPart):
                 firstIndex = i
                 licenseChecker = LicenseType(elementList[i])
-                if licenseChecker.isLicense:
+                if licenseChecker.isLicense or licenseChecker.isCopyright:
                     commentBlock = elementList[i]
                     commentIndex = i
                     break
@@ -158,7 +158,7 @@ class ReLicense(CallbackType):
                 commentBlock = elementList[firstIndex]
 
         licenseChecker = LicenseType(commentBlock)
-        if not licenseChecker.isLicense:
+        if not licenseChecker.isLicense and not licenseChecker.isCopyright:
             if self.newOnly:
                 elementList[:0] = [ self.license.copy(definition) ]
                 print "%s: Added License" % fullfile

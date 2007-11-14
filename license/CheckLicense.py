@@ -118,7 +118,7 @@ class CheckLicense(CallbackType):
         for block in elementList:
             if isinstance(block, CommentPart):
                 licenseChecker = LicenseType(block)
-                if licenseChecker.isLicense:
+                if licenseChecker.isLicense or licenseChecker.isCopyright:
                     commentBlock = block
                     break
         else:

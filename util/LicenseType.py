@@ -51,7 +51,7 @@ class LicenseType:
 
         lines = " ".join(comment)
 
-        self.isLicense = bool(re.search('\sli[c|s]ense\s', lines, re.I))
+        self.isLicense = bool(re.search('\sli[c|s]ense', lines, re.I))
         self.isCopyright = bool(re.search('\s*copyright\s', lines, re.I)) or bool(re.search('\s\(c\)\s', lines, re.I))
 
         self.license = None
